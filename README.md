@@ -158,13 +158,40 @@ For an employee with the experience of 10 to 12 years assign 'LEAD DATA SCIENTIS
 For an employee with the experience of 12 to 16 years assign 'MANAGER'.
 
 ```bash
+DELIMITER $$
+CREATE FUNCTION get_job_profile(experience INT)
+RETURNS VARCHAR(50)
+DETERMINISTIC
 
+BEGIN
+	DECLARE job_profile varchar(50);
+	IF experience<=2 THEN
+		SET job_profile='JUNIOR DATA SCIENTIST';
+	ELSEIF experience between 2 AND 5 THEN
+		SET job_profile='ASSOCIATE DATA SCIENTIST';
+	ELSEIF experience between 5 AND 10 THEN
+		SET job_profile='SENIOR DATA SCIENTIST';
+	ELSEIF experience between 10 AND 12 THEN
+		SET job_profile='LEAD DATA SCIENTISTT';
+	ELSEIF experience between 12 AND 16 THEN
+		SET job_profile='MANAGER';
+	END IF;
+	
+    RETURN job_profile;
+END $$ 
+DELIMITER ;
+
+SELECT EMP_ID, FIRST_NAME, EXP, ROLE, get_job_profile(EXP) AS NEW_ROLE
+FROM data_science_team;
 ```
 
 ### 15. Create an index to improve the cost and performance of the query to find the employee whose FIRST_NAME is ‘Eric’ in the employee table after checking the execution plan.
 
 ```bash
-
+CREATE INDEX idx_first_name
+ON emp_record_table(FIRST_NAME(20));
+SELECT * FROM emp_record_table
+WHERE FIRST_NAME='Eric';
 ```
 
 ### 16. Write a query to calculate the bonus for all the employees, based on their ratings and salaries (Use the formula: 5% of salary * employee rating).
