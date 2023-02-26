@@ -193,6 +193,8 @@ ON emp_record_table(FIRST_NAME(20));
 SELECT * FROM emp_record_table
 WHERE FIRST_NAME='Eric';
 ```
+<img width="1218" alt="Screenshot 2023-02-26 at 10 27 52 AM" src="https://user-images.githubusercontent.com/122512155/221393164-f3d02cb9-0ce6-4a6a-8e54-9f682adec6b8.png">
+
 
 ### 16. Write a query to calculate the bonus for all the employees, based on their ratings and salaries (Use the formula: 5% of salary * employee rating).
 
