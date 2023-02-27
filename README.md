@@ -4,6 +4,14 @@
 
 
 ### 1. Create a database named employee, then import data_science_team.csv proj_table.csv and emp_record_table.csv into the employee database from the given resources.
+
+```bash
+create database employee;
+use employee;
+```
+
+Subsequently I imported data_science_team.csv, proj_table.csv and emp_record_table.csv into the employee database from the given resources using MySQLWorkbench.
+
 <img width="213" alt="Screenshot 2023-02-23 at 4 55 08 PM" src="https://user-images.githubusercontent.com/122512155/220893231-76f55a7a-0e34-408f-ace2-568004cb1b1a.png">
 
 
