@@ -8,7 +8,7 @@
 
 
 ### 2. Create an ER diagram for the given employee database.
-![Image 23-02-23 at 4 48 PM](https://user-images.githubusercontent.com/122512155/220892458-4b192ffc-a24d-43b2-b3c0-4bd2c01909e2.jpg)
+![220892458-4b192ffc-a24d-43b2-b3c0-4bd2c01909e2](https://user-images.githubusercontent.com/122512155/221576860-cd727741-eabe-4d53-a6b9-304dad0eb527.jpg)
 
 
 ### 3. Write a query to fetch EMP_ID, FIRST_NAME, LAST_NAME, GENDER, and DEPARTMENT from the employee record table, and make a list of employees and details of their department.
