@@ -159,12 +159,13 @@ For an employee with the experience of 12 to 16 years assign 'MANAGER'.
 
 ```bash
 DELIMITER $$
-CREATE FUNCTION get_job_profile(experience INT)
+CREATE FUNCTION get_job_profile(experience INT, role VARCHAR(30))
 RETURNS VARCHAR(50)
 DETERMINISTIC
 
 BEGIN
 	DECLARE job_profile varchar(50);
+    DECLARE flag varchar(30);
 	IF experience<=2 THEN
 		SET job_profile='JUNIOR DATA SCIENTIST';
 	ELSEIF experience between 2 AND 5 THEN
@@ -172,18 +173,28 @@ BEGIN
 	ELSEIF experience between 5 AND 10 THEN
 		SET job_profile='SENIOR DATA SCIENTIST';
 	ELSEIF experience between 10 AND 12 THEN
-		SET job_profile='LEAD DATA SCIENTISTT';
+		SET job_profile='LEAD DATA SCIENTIST';
 	ELSEIF experience between 12 AND 16 THEN
 		SET job_profile='MANAGER';
 	END IF;
 	
-    RETURN job_profile;
+    IF job_profile=role THEN
+		SET flag='YES';
+	ELSE 
+		SET flag='NO';
+	END IF;
+    
+    RETURN flag;
 END $$ 
 DELIMITER ;
 
-SELECT EMP_ID, FIRST_NAME, EXP, ROLE, get_job_profile(EXP) AS NEW_ROLE
+
+SELECT EMP_ID, FIRST_NAME, EXP, ROLE, get_job_profile(EXP, ROLE) AS CHECK_PROFILE
 FROM data_science_team;
 ```
+<img width="1220" alt="Screenshot 2023-02-27 at 6 55 05 PM" src="https://user-images.githubusercontent.com/122512155/221575373-d4c982c7-fac6-4f03-9cda-0f87772518ef.png">
+
+
 
 ### 15. Create an index to improve the cost and performance of the query to find the employee whose FIRST_NAME is ‘Eric’ in the employee table after checking the execution plan.
 
