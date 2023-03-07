@@ -73,7 +73,8 @@ GROUP BY W.MANAGER_ID
 HAVING CNT<>0) A
 join emp_record_table emp on emp.emp_id=a.manager_id;
  ```
- <img width="1217" alt="Screenshot 2023-02-23 at 5 05 07 PM" src="https://user-images.githubusercontent.com/122512155/220894923-5ac1bfe8-ea81-4216-af6f-cf4152e12ff8.png">
+ <img width="1220" alt="Screenshot 2023-03-07 at 3 31 23 PM" src="https://user-images.githubusercontent.com/122512155/223401100-883b70b7-8757-4b79-834d-30c45c98d577.png">
+
 
  
 ### 7. Write a query to list down all the employees from the healthcare and finance departments using union. Take data from the employee record table.
