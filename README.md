@@ -67,7 +67,7 @@ WHERE DEPT='FINANCE';
 ### 6. Write a query to list only those employees who have someone reporting to them. Also, show the number of reporters (including the President).
 
  ```bash
- SELECT CONCAT(emp.FIRST_NAME, ' ', EMP.LAST_NAME) AS NAME FROM (SELECT  COUNT(W.MANAGER_ID) CNT, MANAGER_ID
+ SELECT CONCAT(emp.FIRST_NAME, ' ', EMP.LAST_NAME) AS NAME, CNT AS count FROM (SELECT  COUNT(W.MANAGER_ID) CNT, MANAGER_ID
 FROM emp_record_table W
 GROUP BY W.MANAGER_ID
 HAVING CNT<>0) A
